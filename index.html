@@ -1,0 +1,1001 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title></title>
+    <style>
+        /* 공통 css */
+
+        @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+
+        body {
+            font-family: 'NanumSquare', sans-serif;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        body,
+        p,
+        ul,
+        li,
+        form,
+        dl,
+        dd,
+        dt,
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        legend {
+            display: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            padding: 0;
+            font-size: 0;
+            line-height: 0;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        caption {
+            position: absolute;
+            left: -2000px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border: 0;
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+
+        .floatleft {
+            float: left;
+        }
+
+        .floatright {
+            float: right;
+        }
+
+        .clearboth {
+            clear: both;
+        }
+
+        input {
+            background: none;
+            border: none;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #999;
+        }
+
+        .is_pc {
+            display: block;
+        }
+
+        .is_mobile {
+            display: none;
+        }
+
+        .event_wrap {
+            width: 100%;
+            max-width: 855px;
+            position: relative;
+        }
+
+        /*event*/
+        .img01{
+            position:relative
+        }
+        .img01 .ani1{
+            position: absolute;
+            left: 15%;
+            top: 9%;
+            width: 70%;
+            transform: translateX(-50%);
+             animation: up_down 1.5s linear infinite;
+        }
+        
+            @keyframes up_down{
+            0% {transform: translateY(0)}
+            50% {transform: translateY(-14px)}
+            100% {transform: translateY(0)}
+        }
+   
+         .img01 .ani2{
+            position: absolute;
+            left: 50%;
+            top: 9%;
+            width: 60%;
+            transform: translateX(-50%);
+               animation: show_hide 1.5s linear infinite;
+        }
+        
+        @keyframes show_hide{
+        from{opacity: 0;
+
+        } to {
+            opacity: 1;
+            
+        }
+        }
+        .img02 {
+            position: relative;
+        }
+
+        .img02 .inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img02 .inner ul {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img02 .inner ul li {
+            position: absolute;
+            width: 13%;
+            height: 32%;
+        }
+
+        .img02 .inner ul li input {
+            display: none;
+        }
+
+        .img02 .inner ul li input+label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .img02 .inner ul li:nth-child(1) input+label {
+            left: 55%;
+            top: 74%;
+        }
+        .img02 .inner ul li:nth-child(2) input+label {
+            left: 155%;
+            top: 74%;
+        }
+        
+        
+        .img02 .inner ul li:nth-child(3) input+label {
+            left: 260%;
+            top: 74%;
+        }
+        .img02 .inner ul li input+label span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .img02 .inner ul li input+label .on {
+            display: none;
+        }
+
+        .img02 .inner ul li input+label .off {
+            display: block;
+            ;
+        }
+
+        .img02 .inner ul li input+label.active .on {
+            display: block;
+        }
+
+        .img02 .inner ul li input+label.active .off {
+            display: none;
+        }
+
+        .img02 .inner ul li.ch1 {
+            left: 10%;
+            top: 22%;
+        }
+
+        .img02 .inner ul li.ch2 {
+            left: 23.5%;
+            top: 22%;
+        }
+
+        .img02 .inner ul li.ch3 {
+            left: 36.5%;
+            top: 22%;
+        }
+
+    
+     
+
+        .btn_area {
+            position: relative;
+        }
+
+        .btn_area button {
+            position: absolute;
+            left: 8%;
+            top: 0;
+            width: 84%;
+            height: 100%;
+        }
+
+        .sns_area {
+            position: relative;
+        }
+
+        .sns_area a {
+            position: absolute;
+            top: 2%;
+            width: 20%;
+            height: 65%;
+        }
+
+        .sns_area a.sns1 {
+            left: 5%;
+        }
+
+        .sns_area a.sns2 {
+            left: 29%;
+        }
+
+        .sns_area a.sns3 {
+            left: 53%;
+        }
+
+        .sns_area a.sns4 {
+            left: 75%;
+        }
+
+        /*팝업*/
+        #dim {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            opacity: 0.6;
+        }
+
+        #dim.active {
+            display: block;
+        }
+
+        .pop {
+            position: absolute;
+            left: 50%;
+            top: 72%;
+            width: 85%;
+            transform: translateX(-50%)
+        }
+
+        .pop .pop_area {
+            opacity: 0;
+            position: relative;
+        }
+
+        .pop .pop_area.active {
+            opacity: 1;
+        }
+
+        .pop .pop_area img {
+            height: 0;
+            width: 0;
+            opacity: 0;
+            -webkit-transition-duration: 1s;
+            -moz-transition-duration: 1s;
+            -ms-transition-duration: 1s;
+            -o-transition-duration: 1s;
+            transition-duration: 1s;
+            -webkit-transform: scale(1.0);
+            -moz-transform: scale(1.0);
+            -ms-transform: scale(1.0);
+            -o-transform: scale(1.0);
+            transform: scale(1.0);
+        }
+
+        .pop .pop_area img.active {
+            display: block;
+            opacity: 1;
+            height: 100%;
+            width: 100%;
+/*
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+*/
+        }
+
+        .pop .pop_area button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+        }
+
+
+
+
+        /* table */
+        .table {
+            padding: 0 40px 0 40px;
+            background-color: #fff;
+        }
+
+        .table img {
+            width: auto;
+        }
+
+        .table table {
+            width: 100%;
+            table-layout: fixed;
+            border: 1px solid #b1b1b1;
+        }
+
+        .table.td_center table td.txt {
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .table h2 {
+            padding: 40px 0 20px 0;
+            font-size: 30px;
+            color: #5f4b43;
+            font-family: "Nanum Gothic", "Malgun Gothic", dotum, "돋움";
+            letter-spacing: -0.05em;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .table .input_area {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .table .input_area label {
+            display: block;
+            margin-right: 202px;
+            padding: 0 10px;
+            background: #fff;
+            border: 1px solid #ebebeb;
+            border-radius: 5px;
+          
+            background-size: cover;
+        }
+
+        .table .input_area input[type="text"] {
+            width: 100%;
+            padding: 13px 0;
+            border: 0;
+            font-size: 18px;
+            font-family: "Nanum Gothic", "Malgun Gothic", dotum, "돋움";
+            color: #666;
+            font-weight: bold;
+        }
+
+        .table .input_area .submit {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .table .help_text {
+            padding: 10px 0 22px 50px;
+        }
+
+        .table .help_text img {
+            vertical-align: top;
+        }
+
+        .table table .col1 {
+            width: 15%;
+        }
+
+        .table table .col2 {
+            width: 68%;
+        }
+
+        .table table .col3 {
+            width: 18%;
+        }
+
+        .table table .col1_1 {
+            width: 14%;
+        }
+
+        .table table .col2_2 {
+            width: 8%;
+        }
+
+        .table table .col3_3 {
+            width: 30%;
+        }
+
+        .table table .col3_4 {
+            width: 15%;
+        }
+
+        .table table .col3_5 {
+            width: 30%;
+        }
+
+        .table table th {
+            background-color: #d9f2ff;
+            height: 38px;
+            color: #777;
+            font-size: 20px;
+            font-family: "Malgun Gothic";
+            border-bottom: 1px solid #b1b1b1;
+            border-right: 1px solid #b1b1b1;
+            font-weight: normal;
+        }
+
+        .table table .th_wrap {}
+
+        .table table .td_wrap {
+            padding: 9px 0;
+        }
+
+        .table table tr:nth-child(2n) td {
+            background-color: #eee;
+        }
+
+        .table table tr:nth-child(2n-1) td {
+            background-color: #fff;
+        }
+
+        .table table td {
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+            border-bottom: 1px solid #b1b1b1;
+            border-right: 1px solid #b1b1b1;
+            color: #243060;
+            font-family: "Malgun Gothic", dotum, "돋움";
+            word-wrap: break-word;
+            line-height: 14px;
+            height: 31px;
+        }
+
+        .table table td.txt {
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        .table table td:first-child {
+            border-left: 0;
+        }
+
+    .paging {
+        position: relative;
+        text-align: center;
+        padding: 35px 0;
+        z-index: 10;
+      }
+      .paging * {
+        vertical-align: middle;
+        font-weight: bold;
+      }
+      .paging > a {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .paging .prev,
+      .paging .next {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin-left: 5px;
+        background: url(images/629/prev.png) center no-repeat;
+        border: 1px solid #1d98df;
+        z-index: 5;
+      }
+      .paging strong {
+        display: inline-block;
+        vertical-align: middle;
+        color: #000;
+        font-family: "notoSansKR", dotum, "돋움";
+        padding: 0 10px;
+        font-weight: bold;
+      }
+      .paging .prev.most {
+        margin-left: 0;
+        background: url(images/629/prev_prev.png) center no-repeat;
+      }
+      .paging .next {
+        background: url(images/629/next.png) center no-repeat;
+      }
+      .paging .next.most {
+        background: url(images/629/next_next.png) center no-repeat;
+      }
+      .paging span {
+        display: inline-block;
+        line-height: 20px;
+      }
+      .paging span a {
+        display: inline-block;
+        vertical-align: middle;
+        font-family: "notoSansKR", dotum, "돋움";
+        padding: 0 10px;
+        color: #000;
+        font-size: 14px;
+      }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .paging span a {
+                background-position: 0 2px;
+            }
+        }
+
+        .paging span a:first-child {
+            background: none;
+        }
+
+
+
+
+
+        /* 테블릿 및 모바일 */
+        @media all and (max-width:720px) {
+            .is_pc {
+                display: none;
+            }
+
+            .is_mobile {
+                display: block;
+            }
+
+            .event_wrap {
+                max-width: 100%;
+            }
+
+
+
+            .table {
+                padding: 30px 6.1% 0 6.1%;
+            }
+
+            .table h2 {
+                padding: 20px 0 10px 0;
+                font-size: 20px;
+            }
+
+            .table .input_area {
+                margin-bottom: 10px;
+            }
+
+            .table .input_area label {
+                margin-right: 113px;
+            }
+
+            .table .input_area input[type="text"] {
+                padding: 6px 0 7px 0;
+                font-size: 14px;
+            }
+
+            .table .input_area .submit {
+                width: 98px;
+                height: 100%;
+            }
+
+            .table table .td_wrap {
+                padding: 4px 0;
+            }
+
+            .table table td.txt {
+                padding-left: 10px;
+            }
+
+            .table table th,
+            .table table td {
+                font-size: 12px;
+            }
+
+            .paging {
+                padding: 20px 0 30px;
+            }
+
+            .paging strong {
+                padding: 0 8px;
+                font-size: 12px;
+                line-height: 14px;
+            }
+
+            .paging span {
+                display: inline-block;
+                margin: 0 10px;
+            }
+
+            .paging span a {
+                padding: 0 8px;
+                font-size: 12px;
+                line-height: 14px;
+            }
+
+            .pop {
+                top: 60%;
+            }
+
+            .pop .pop_area button {
+                right: 0;
+                top: 0;
+            }
+
+            .input_text > input {
+                font-size: 12px !important
+            }
+            .input_text {
+                top: 86% !important
+            }
+
+            .paging {
+              padding: 30px 0;
+            }
+            .paging .num > strong,
+            .paging span a {
+              padding: 0 4px;
+              font-size: 12px;
+            }
+            .paging .prev,
+            .paging .next {
+              width: 22px;
+              height: 22px;
+            }
+            .img02 .inner ul li:nth-child(1) input+label {
+                 top: 44%;
+        }
+            
+            .img02 .inner ul li:nth-child(2) input+label {
+             top: 44%;
+        }
+            
+            .img02 .inner ul li:nth-child(3) input+label {
+            top: 44%;
+        }
+        }
+        
+        
+        .input_text {    position: absolute;
+            left: 50%;
+            top: 86%;
+            z-index: 9999;
+            transform: translateX(-50%)
+        }
+        .input_text > input {    background: none;
+            border: none;
+            outline: none;
+            height: 40px;
+            width: 600px;
+            font-size: 18px;
+            text-align: center
+                
+        }
+        
+        
+        @media all and (max-width: 600px){
+               .input_text {
+                top: 85.5% !important
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="event_wrap">
+        <div class="img01">
+            <img src="images/629/img01.jpg" class="is_pc">
+            <img src="images/629/img01_m.jpg" class="is_mobile">
+            <img src="images/629/ani1.png" alt="" class="is_pc ani1">
+            <img src="images/629/ani1.png" alt="" class="is_mobile ani1">   
+            <img src="images/629/ani2.png" alt="" class="is_pc ani2">
+            <img src="images/629/ani2.png" alt="" class="is_mobile ani2">   
+        </div>
+        <div class="img02">
+            <img src="images/629/img02.jpg" class="is_pc">
+            <img src="images/629/img02_m.jpg" class="is_mobile">
+            <img src="images/629/img03.jpg" class="is_pc">
+               <img src="images/629/img03_m.png" class="is_mobile">
+           
+            <div class="input_text">
+                <input type="text" placeholder="업무에 지친 요즘, 릴렉서가 필요해요ㅠㅠ" autofocus maxlength="40">
+            </div>
+
+            <div class="inner">
+                <ul>
+                    <li class="ch1"><input type="radio" id="c1" name="b1"><label for="c1">
+                    <span>
+                    <img src="images/629/select1.png" class="off">
+                    <img src="images/629/select1_h.png" class="on">
+                    </span>
+                    </label>
+                    </li>
+                    <li class="ch2"><input type="radio" id="c2" name="b1">
+                    <label for="c2">
+                    <span>
+                    <img src="images/629/select2.png" class="off"><img src="images/629/select2_h.png" class="on">
+                    </span>
+                    </label>
+                    </li>
+                    <li class="ch3"><input type="radio" id="c3" name="b1">
+                    <label for="c3"><span><img src="images/629/select3.png" class="off"><img src="images/629/select3_h.png" class="on">
+                    </span></label></li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn_area">
+            <img src="images/629/img04.png" class="is_pc">
+            <img src="images/629/img04_m.png" class="is_mobile">
+            <button type="button"></button>
+        </div>
+     
+
+        <div class="table">
+            <p class="input_area"><label><input type="text"></label>
+                <input type="image" class="submit is_pc" id="submit" src="images/629/btn_pc.png" alt="입력하기">
+                <input type="image" class="submit is_mobile" id="submit" src="images/629/btn_m.png" alt="입력하기">
+            </p>
+            <table>
+                <caption>스크랩주소</caption>
+                <colgroup>
+                    <col class="col2_2">
+                    <col class="col2">
+                    <col class="col1">
+                    <col class="col3">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <div class="th_wrap">NO</div>
+                        </th>
+                        <th scope="col">
+                            <div class="th_wrap">TEXT</div>
+                        </th>
+                        <th scope="col">
+                            <div class="th_wrap">ID</div>
+                        </th>
+                        <th scope="col">
+                            <div class="th_wrap">DATE</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td_wrap">1</div>
+                        </td>
+                        <td class="txt">
+                            <div class="td_wrap">www.wjfood.co.kr/k;jdfklajd;lkafn;</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">메이드웹</div>
+                        </td>
+                        <td>
+                            <div class="td_wrap">2015-10-15</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+             <div class="paging">
+                    <a class="prev most" href="#"><span></span></a>
+                    <a class="prev" href="#"><span></span></a>
+                    <span class="num">
+                      <strong>1</strong>
+                      <a class="num" href="#">2</a>
+                      <a class="num" href="#">3</a>
+                      <a class="num" href="#">4</a>
+                      <a class="num" href="#">5</a>
+                    </span>
+                    <a class="next" href="#"><span></span></a>
+                    <a class="next most" href="#"><span></span></a>
+                </div>
+            </div>
+        <div id="dim"></div>
+        <div class="pop">
+            <div class="pop_area fail">
+                <img src="images/629/popup1.png" alt="제품선택 팝업" class="pop1">
+                <img src="images/629/popup2.png" alt="선택이유 팝업" class="pop2">
+                <img src="images/629/popup3.png" alt="응모완료 팝업" class="pop3">
+                <img src="images/629/popup4.png" alt="이미응모완료 팝업" class="pop4">
+                <button>
+                    닫기버튼
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+    function popUp() {
+        var $idx = 0;
+        var $selector = $('.btn_area button');
+        $selector.on('click', function() {
+            var st = $(":input:radio[name=b1]:checked");
+            var $idx = st.parents('li').index();
+            $('#dim').addClass('active');
+            $('.pop_area').addClass('active');
+            $('.pop_area img').eq($idx).addClass('active');
+        })
+        $('.pop_area button').on('click', function() {
+            $('#dim').removeClass('active');
+            $('.pop_area').removeClass('active');
+            $('.pop_area img').removeClass('active');
+        })
+    }
+    popUp();
+
+    function checkBtn() {
+        $('.inner li label').on('click', function() {
+            $('.inner li label').removeClass('active');
+            $(this).addClass('active');
+        })
+    }
+    checkBtn();
+</script>
+
+</html>
